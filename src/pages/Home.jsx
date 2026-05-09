@@ -180,7 +180,7 @@ const Home = () => {
                             </div>
 
                             <h3 className="text-[20px] font-bold text-[var(--text-dark)] mb-4">
-                                OxyGen AI Chat
+                                OxyGen AI
                             </h3>
 
                             <p className="text-[13px] leading-[1.9] text-[var(--text-gray)]">
