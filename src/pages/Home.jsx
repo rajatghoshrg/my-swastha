@@ -47,7 +47,7 @@ const Home = () => {
                     <img
                         src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1600&auto=format&fit=crop"
                         alt="Healthcare"
-                        className="absolute inset-0 h-full w-full object-cover opacity-[0.08]"
+                        className="absolute inset-0 h-full w-full object-cover opacity-[0.1]"
                     />
 
                     {/* Overlay */}
@@ -109,7 +109,7 @@ const Home = () => {
                             <div className="absolute w-[360px] h-[360px] bg-[var(--teal-primary)]/20 blur-3xl rounded-full animate-pulse"></div>
 
                             {/* Video Container */}
-                            <div className="relative w-full max-w-[380px] h-[500px] rounded-[36px] overflow-hidden border border-white/40 shadow-2xl backdrop-blur-xl bg-white/20 animate-[float_5s_ease-in-out_infinite]">
+                            <div className="relative w-full max-w-[700px] aspect-video rounded-[36px] overflow-hidden border border-white/40 shadow-2xl backdrop-blur-xl bg-white/20 animate-[float_5s_ease-in-out_infinite]">
 
                                 {/* Overlay Gradient */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 z-10"></div>
@@ -122,7 +122,7 @@ const Home = () => {
                                     playsInline
                                     className="w-full h-full object-cover"
                                 >
-                                    <source src="/videos/yoga_ai.mp4" type="video/mp4" />
+                                    <source src="/videos/herosection_video.mp4" type="video/mp4" />
                                 </video>
 
                                 {/* Floating Badge */}
@@ -373,41 +373,72 @@ const Home = () => {
                         <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[var(--mint-light)] rounded-full blur-3xl opacity-40"></div>
 
                         {/* STATS */}
-                        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-12">
+                        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
 
-                            <div className="bg-white/60 backdrop-blur-sm rounded-[24px] py-8 border border-white/40 shadow-sm">
+                            {/* CARD 1 */}
+                            <div className="group relative overflow-hidden bg-white/70 backdrop-blur-xl rounded-[30px] p-8 border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
 
-                                <h2 className="text-5xl font-bold text-[var(--teal-primary)] mb-2">
+                                {/* Glow */}
+                                <div className="absolute top-[-40px] right-[-40px] w-[120px] h-[120px] bg-[#14b8a6]/20 blur-3xl rounded-full"></div>
+
+                                {/* Number */}
+                                <h2 className="text-6xl font-black bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] bg-clip-text text-transparent mb-3">
+
                                     2.4M
+
                                 </h2>
 
-                                <p className="text-[13px] uppercase tracking-wide text-[var(--text-gray)]">
+                                {/* Label */}
+                                <p className="text-[13px] uppercase tracking-[2px] text-[var(--text-gray)] font-medium mb-4">
+
                                     Active Users
+
                                 </p>
+
+                                {/* Bottom Line */}
+                                <div className="w-14 h-[4px] rounded-full bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]"></div>
 
                             </div>
 
-                            <div className="bg-white/60 backdrop-blur-sm rounded-[24px] py-8 border border-white/40 shadow-sm">
+                            {/* CARD 2 */}
+                            <div className="group relative overflow-hidden bg-white/70 backdrop-blur-xl rounded-[30px] p-8 border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
 
-                                <h2 className="text-5xl font-bold text-[var(--teal-primary)] mb-2">
+                                <div className="absolute top-[-40px] right-[-40px] w-[120px] h-[120px] bg-[#14b8a6]/20 blur-3xl rounded-full"></div>
+
+                                <h2 className="text-6xl font-black bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] bg-clip-text text-transparent mb-3">
+
                                     99%
+
                                 </h2>
 
-                                <p className="text-[13px] uppercase tracking-wide text-[var(--text-gray)]">
+                                <p className="text-[13px] uppercase tracking-[2px] text-[var(--text-gray)] font-medium mb-4">
+
                                     Accuracy Rating
+
                                 </p>
+
+                                <div className="w-14 h-[4px] rounded-full bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]"></div>
 
                             </div>
 
-                            <div className="bg-white/60 backdrop-blur-sm rounded-[24px] py-8 border border-white/40 shadow-sm">
+                            {/* CARD 3 */}
+                            <div className="group relative overflow-hidden bg-white/70 backdrop-blur-xl rounded-[30px] p-8 border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
 
-                                <h2 className="text-5xl font-bold text-[var(--teal-primary)] mb-2">
+                                <div className="absolute top-[-40px] right-[-40px] w-[120px] h-[120px] bg-[#14b8a6]/20 blur-3xl rounded-full"></div>
+
+                                <h2 className="text-6xl font-black bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] bg-clip-text text-transparent mb-3">
+
                                     24/7
+
                                 </h2>
 
-                                <p className="text-[13px] uppercase tracking-wide text-[var(--text-gray)]">
+                                <p className="text-[13px] uppercase tracking-[2px] text-[var(--text-gray)] font-medium mb-4">
+
                                     Health Support
+
                                 </p>
+
+                                <div className="w-14 h-[4px] rounded-full bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]"></div>
 
                             </div>
 

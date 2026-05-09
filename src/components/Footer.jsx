@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
     return (
-        
+
         <footer id="community" className="mt-20 bg-[#eef6f4] rounded-[32px] border border-[var(--border-light)] px-8 lg:px-14 py-10">
 
             {/* TOP SECTION */}
@@ -19,8 +19,13 @@ const Footer = () => {
                 <div>
 
                     <h2 className="text-[28px] font-bold mb-4">
-                        <span className="text-[var(--teal-primary)]">My</span>{' '}
-                        <span className="text-[var(--teal-dark)]">Swastha</span>
+
+                        <span className="bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] bg-clip-text text-transparent">
+
+                            My Swastha
+
+                        </span>
+
                     </h2>
 
                     <p className="text-[14px] leading-[1.8] text-[var(--text-gray)] mb-5 max-w-[280px]">

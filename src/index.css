@@ -10,8 +10,8 @@
   --mint-soft: #d7f3ec;
 
   /* Accent Colors */
-  --soft-orange: #f6c7a8;
-  --soft-orange-dark: #e9b28f;
+  --soft-orange: #ffb98a;
+  --soft-orange-dark: #ff9f66;
 
   /* Neutral Colors */
   --bg-main: #f7f9f8;
@@ -73,7 +73,7 @@ body::before {
   background-position: center;
   background-repeat: no-repeat;
 
-  opacity: 0.08;
+  opacity: 1;
 
   pointer-events: none;
 
