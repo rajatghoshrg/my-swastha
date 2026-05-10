@@ -52,7 +52,7 @@ const Navbar = () => {
                     </div>
 
                     {/* DESKTOP NAV LINKS */}
-                    <ul className="hidden xl:flex items-center gap-10 text-[15px] text-[var(--text-gray)] font-medium">
+                    <ul className="hidden xl:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[15px] text-[var(--text-gray)] font-medium">
 
                         <li className="relative text-[var(--teal-primary)] cursor-pointer">
 
@@ -150,7 +150,7 @@ const Navbar = () => {
 
                     <div className="xl:hidden mt-4 bg-white/90 backdrop-blur-xl rounded-[28px] p-6 border border-white/40 shadow-xl animate-fadeIn">
 
-                        <ul className="flex flex-col gap-5 text-[16px] font-medium text-[var(--text-gray)]">
+                        <ul className="flex flex-col items-center text-center gap-5 text-[16px] font-medium text-[var(--text-gray)]">
 
                             <li>
                                 <a href="#home" onClick={() => setMobileMenu(false)}>

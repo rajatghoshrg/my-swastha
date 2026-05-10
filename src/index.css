@@ -79,3 +79,13 @@ body::before {
 
   z-index: 0;
 }
+
+@keyframes shine {
+  0% {
+    left: -40%;
+  }
+
+  100% {
+    left: 140%;
+  }
+}
