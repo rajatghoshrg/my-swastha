@@ -45,9 +45,9 @@ const Home = () => {
 
                     {/* Background Image */}
                     <img
-                        src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1600&auto=format&fit=crop"
+                        src="/images/hero_bg_banner.jpg"
                         alt="Healthcare"
-                        className="absolute inset-0 h-full w-full object-cover opacity-[0.1]"
+                        className="absolute inset-0 h-full w-full object-cover opacity-[0.4]"
                     />
 
                     {/* Overlay */}
@@ -103,16 +103,16 @@ const Home = () => {
                         </div>
 
                         {/* RIGHT SIDE */}
-                        <div className="flex justify-center lg:justify-end relative">
+                        <div className="flex justify-center lg:justify-end relative mt-10 lg:mt-0">
 
                             {/* Glow Effect */}
-                            <div className="absolute w-[360px] h-[360px] bg-[var(--teal-primary)]/20 blur-3xl rounded-full animate-pulse"></div>
+                            <div className="absolute w-[260px] sm:w-[360px] h-[260px] sm:h-[360px] bg-[var(--teal-primary)]/20 blur-3xl rounded-full animate-pulse"></div>
 
                             {/* Video Container */}
-                            <div className="relative w-full max-w-[700px] aspect-video rounded-[36px] overflow-hidden border border-white/40 shadow-2xl backdrop-blur-xl bg-white/20 animate-[float_5s_ease-in-out_infinite]">
+                            <div className="relative w-full max-w-[700px] aspect-video rounded-[24px] sm:rounded-[36px] overflow-hidden border border-white/40 shadow-2xl backdrop-blur-xl bg-white/20 animate-[float_5s_ease-in-out_infinite]">
 
                                 {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 z-10"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-white/10 z-10"></div>
 
                                 {/* AI Video */}
                                 <video
@@ -120,29 +120,41 @@ const Home = () => {
                                     loop
                                     muted
                                     playsInline
+                                    preload="auto"
                                     className="w-full h-full object-cover"
                                 >
-                                    <source src="/videos/herosection_video.mp4" type="video/mp4" />
+
+                                    <source
+                                        src="/videos/herosection_video.mp4"
+                                        type="video/mp4"
+                                    />
+
                                 </video>
 
                                 {/* Floating Badge */}
-                                <div className="absolute top-5 left-5 z-20 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/40 shadow-lg">
+                                <div className="absolute top-3 sm:top-5 left-3 sm:left-5 z-20 bg-white/80 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/40 shadow-lg">
 
-                                    <p className="text-[12px] font-semibold text-[var(--teal-dark)]">
+                                    <p className="text-[10px] sm:text-[12px] font-semibold text-[var(--teal-dark)]">
+
                                         ✦ AI Wellness Experience
+
                                     </p>
 
                                 </div>
 
-                                {/* Bottom Text */}
-                                <div className="absolute bottom-6 left-6 z-20">
+                                {/* Bottom Content */}
+                                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 z-20">
 
-                                    <h3 className="text-white text-[26px] font-bold mb-2">
+                                    <h3 className="text-white text-[20px] sm:text-[30px] font-bold mb-1 sm:mb-2">
+
                                         Mind & Body Wellness
+
                                     </h3>
 
-                                    <p className="text-white/80 text-[14px] max-w-[260px] leading-[1.7]">
+                                    <p className="text-white/85 text-[11px] sm:text-[14px] max-w-[220px] sm:max-w-[320px] leading-[1.6] sm:leading-[1.7]">
+
                                         Personalized AI-guided yoga, meditation, and wellness support for healthier living.
+
                                     </p>
 
                                 </div>

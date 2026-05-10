@@ -29,10 +29,7 @@ const Footer = () => {
                     </h2>
 
                     <p className="text-[14px] leading-[1.8] text-[var(--text-gray)] mb-5 max-w-[280px]">
-
-                        AI-powered healthcare and wellness support
-                        for smarter, safer, and healthier living.
-
+                        Personalized AI wellness guidance for mental balance, physical fitness, healthy routines, and smarter living.
                     </p>
 
                     {/* SOCIALS */}
@@ -68,7 +65,7 @@ const Footer = () => {
                     <div className="flex flex-col gap-3 text-[14px] text-[var(--text-gray)]">
 
                         <span className="hover:text-[var(--teal-primary)] cursor-pointer transition-all">
-                            AI Health Assistant
+                            Oxygen AI
                         </span>
 
                         <span className="hover:text-[var(--teal-primary)] cursor-pointer transition-all">
@@ -80,7 +77,11 @@ const Footer = () => {
                         </span>
 
                         <span className="hover:text-[var(--teal-primary)] cursor-pointer transition-all">
-                            Fitness Tracking
+                            Daily Checkup
+                        </span>
+
+                        <span className="hover:text-[var(--teal-primary)] cursor-pointer transition-all">
+                            Exercise With Me
                         </span>
 
                     </div>

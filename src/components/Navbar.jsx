@@ -1,19 +1,24 @@
 import React from 'react'
+
 import { RiSparklingFill } from "react-icons/ri";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 
 const Navbar = () => {
+
     return (
-        <nav className="sticky top-4 z-50 w-full h-[78px] bg-white/70 backdrop-blur-xl rounded-full px-8 flex items-center justify-between border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+
+        <nav className="sticky top-3 z-50 w-full min-h-[76px] bg-white/75 backdrop-blur-xl rounded-[30px] px-4 sm:px-6 lg:px-8 flex items-center justify-between border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
 
             {/* LEFT SIDE */}
-            <div className="flex items-center gap-14">
+            <div className="flex items-center gap-10">
 
                 {/* Logo */}
-                <div className="flex items-center gap-4 cursor-pointer group">
+                <div className="flex items-center gap-3 cursor-pointer group">
 
                     {/* Logo Circle */}
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-300">
-                        <span className="text-white font-extrabold text-[20px]">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] flex items-center justify-center shadow-lg group-hover:scale-105 transition-all duration-300">
+
+                        <span className="text-white font-extrabold text-[20px] sm:text-[22px]">
                             M
                         </span>
 
@@ -22,21 +27,28 @@ const Navbar = () => {
                     {/* Logo Text */}
                     <div className="flex flex-col justify-center">
 
-                        <h1 className="text-[28px] font-black tracking-[-1px] leading-none">
+                        <h1 className="text-[22px] sm:text-[24px] font-black tracking-[-1px] leading-none">
+
                             <span className="bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] bg-clip-text text-transparent">
+
                                 My Swastha
+
                             </span>
+
                         </h1>
 
-                        <p className="text-[10px] font-medium text-[var(--text-gray)] tracking-[1.8px] mt-1 uppercase">
+                        <p className="hidden sm:block text-[8px] font-medium text-[var(--text-gray)] tracking-[2px] mt-1 uppercase">
+
                             AI Healthcare Platform
+
                         </p>
 
                     </div>
 
                 </div>
 
-                <ul className="hidden lg:flex items-center gap-10 text-[15px] text-[var(--text-gray)] font-medium">
+                {/* DESKTOP NAV LINKS */}
+                <ul className="hidden xl:flex items-center gap-10 text-[15px] text-[var(--text-gray)] font-medium">
 
                     <li className="relative text-[var(--teal-primary)] cursor-pointer">
 
@@ -68,7 +80,6 @@ const Navbar = () => {
 
                         <a href="#oxygen" className="flex items-center gap-2">
 
-                            {/* AI Badge */}
                             <span className="flex items-center gap-1 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">
 
                                 <RiSparklingFill className="text-white text-[11px]" />
@@ -96,24 +107,38 @@ const Navbar = () => {
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
 
-                {/* Sign In */}
-                <button className="text-[15px] text-[var(--text-gray)] font-semibold hover:text-[var(--teal-primary)] transition-all duration-300">
+                {/* MOBILE MENU */}
+                <button className="xl:hidden w-11 h-11 rounded-full bg-white shadow-md flex items-center justify-center">
 
-                    Log In
-
-                </button>
-
-                {/* Sign Up */}
-                <button className="bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] hover:scale-105 hover:shadow-[0_8px_25px_rgba(20,184,166,0.35)] text-white px-7 py-3 rounded-full text-[15px] font-semibold transition-all duration-300">
-
-                    Sign Up
+                    <HiOutlineMenuAlt3 className="text-2xl text-[var(--teal-dark)]" />
 
                 </button>
+
+                {/* DESKTOP BUTTONS */}
+                <div className="hidden sm:flex items-center gap-4">
+
+                    {/* Log In */}
+                    <button className="text-[15px] text-[var(--text-gray)] font-semibold hover:text-[var(--teal-primary)] transition-all duration-300">
+
+                        Log In
+
+                    </button>
+
+                    {/* Sign Up */}
+                    <button className="bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] hover:scale-105 hover:shadow-[0_8px_25px_rgba(20,184,166,0.35)] text-white px-6 py-2.5 rounded-full text-[15px] font-semibold transition-all duration-300">
+
+                        Sign Up
+
+                    </button>
+
+                </div>
+
             </div>
 
         </nav>
+
     )
 }
 
