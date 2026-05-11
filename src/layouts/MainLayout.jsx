@@ -5,15 +5,31 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 const MainLayout = () => {
+
     return (
 
-        <div className="relative z-10 min-h-screen bg-[#f5f7f6]/80 backdrop-blur-sm">
+        <div className="relative min-h-screen overflow-hidden">
 
-            <Navbar />
+            {/* FIXED BACKGROUND IMAGE */}
+            <img
+                src="/images/webpage_bg.png"
+                alt="background"
+                className="fixed inset-0 w-full h-full object-cover opacity-[0.45]"
+            />
 
-            <Outlet />
+            {/* WHITE OVERLAY */}
+            <div className="fixed inset-0 bg-white/45 backdrop-blur-[2px]"></div>
 
-            <Footer />
+            {/* CONTENT */}
+            <div className="relative z-10 min-h-screen">
+
+                <Navbar />
+
+                <Outlet />
+
+                <Footer />
+
+            </div>
 
         </div>
 

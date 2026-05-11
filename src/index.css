@@ -20,7 +20,9 @@
   --border-light: #dce7e4;
 }
 
+/* FLOAT ANIMATION */
 @keyframes float {
+
   0% {
     transform: translateY(0px);
   }
@@ -32,9 +34,12 @@
   100% {
     transform: translateY(0px);
   }
+
 }
 
+/* FADE IN */
 @keyframes fadeIn {
+
   from {
     opacity: 0;
     transform: translateY(12px);
@@ -44,43 +49,30 @@
     opacity: 1;
     transform: translateY(0);
   }
+
 }
 
 .animate-fadeIn {
   animation: fadeIn 0.8s ease;
 }
 
+/* SMOOTH SCROLL */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   position: relative;
-  background: var(--bg-main);
+  min-height: 100vh;
+  background-color: #eef7f5;
   color: var(--text-dark);
   font-family: Inter, sans-serif;
   overflow-x: hidden;
 }
 
-body::before {
-  content: "";
-
-  position: fixed;
-  inset: 0;
-
-  background-image: url("/images/webpage_bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  opacity: 1;
-
-  pointer-events: none;
-
-  z-index: 0;
-}
-
+/* SHINE ANIMATION */
 @keyframes shine {
+
   0% {
     left: -40%;
   }
@@ -88,4 +80,5 @@ body::before {
   100% {
     left: 140%;
   }
+
 }

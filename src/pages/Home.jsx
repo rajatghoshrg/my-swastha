@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+import { useNavigate } from "react-router-dom";
+
 import {
     Sparkles,
     ShieldAlert,
@@ -18,6 +20,8 @@ const Home = () => {
         "Daily Wellness",
         "Mental Strength"
     ]
+
+    const navigate = useNavigate();
 
     const [currentText, setCurrentText] = useState(0)
 
@@ -105,7 +109,10 @@ const Home = () => {
                             {/* Buttons */}
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
 
-                                <button className="w-full sm:w-auto bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] hover:scale-[1.02] hover:shadow-[0_8px_25px_rgba(20,184,166,0.25)] text-white px-8 py-4 rounded-full text-[16px] font-semibold transition-all duration-300">
+                                <button
+                                    onClick={() => navigate("/dashboard")}
+                                    className="w-full sm:w-auto bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] hover:scale-[1.02] hover:shadow-[0_8px_25px_rgba(20,184,166,0.25)] text-white px-8 py-4 rounded-full text-[16px] font-semibold transition-all duration-300"
+                                >
 
                                     Get Started →
 
