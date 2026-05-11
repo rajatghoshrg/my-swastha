@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-import Sidebar from '../components/Sidebar'
+import SideBar from '../components/SideBar'
 import Topbar from '../components/Topbar'
 
 const DashboardLayout = () => {
@@ -23,7 +23,7 @@ const DashboardLayout = () => {
             {/* SIDEBAR */}
             <div className="relative z-10">
 
-                <Sidebar />
+                <SideBar />
 
             </div>
 
