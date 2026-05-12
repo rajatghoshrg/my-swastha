@@ -10,6 +10,7 @@ import Chat from "../pages/Chat";
 import Checkup from "../pages/Checkup";
 import Emergency from "../pages/Emergency";
 import Exercise from "../pages/Exercise";
+import Calculators from "../pages/Calculators";
 
 
 function AppRoutes() {
@@ -64,6 +65,12 @@ function AppRoutes() {
                 <Route
                     path="/exercise"
                     element={<Exercise />}
+                />
+
+                 {/* Calculators */}
+                <Route
+                    path="/calculators"
+                    element={<Calculators />}
                 />
 
 

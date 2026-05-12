@@ -28,7 +28,7 @@ const DashboardLayout = () => {
             </div>
 
             {/* MAIN CONTENT */}
-            <div className="relative z-10 flex-1 p-4 sm:p-6 lg:p-8">
+            <div className="relative z-10 flex-1 lg:ml-[280px] p-4 sm:p-6 lg:p-8">
 
                 {/* TOPBAR */}
                 <Topbar />

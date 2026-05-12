@@ -1,76 +1,65 @@
 import React from 'react'
 
 import {
-    RiNotification3Fill,
-    RiSearch2Line
+    RiNotification3Fill
 } from "react-icons/ri";
 
 const Topbar = () => {
 
     return (
 
-        <div className="w-full bg-white/70 backdrop-blur-2xl border border-white/40 rounded-[28px] px-5 sm:px-8 py-4 flex items-center justify-between shadow-sm">
+        <div className="fixed top-0 right-0 lg:left-[280px] z-40 px-4 sm:px-6 lg:px-8 pt-4">
 
-            {/* LEFT */}
-            <div>
+            <div className="relative overflow-hidden w-full
+            bg-gradient-to-r from-white/55 via-white/35 to-white/20
+            backdrop-blur-2xl
+            border border-white/30
+            rounded-[28px]
+            px-5 sm:px-6 py-3
+            flex items-center justify-between
+            shadow-[0_8px_40px_rgba(15,157,148,0.10)]">
 
-                <h2 className="text-[24px] sm:text-[32px] font-black text-[var(--text-dark)]">
+                {/* TOP GLOW */}
+                <div className="absolute top-[-80px] left-[20%] w-[220px] h-[220px] bg-[#14b8a6]/10 rounded-full blur-3xl"></div>
 
-                    Welcome Back 👋
+                {/* RIGHT GLOW */}
+                <div className="absolute right-[-60px] top-[-40px] w-[180px] h-[180px] bg-[#0ea5a4]/10 rounded-full blur-3xl"></div>
 
-                </h2>
+                {/* LEFT */}
+                <div className="relative z-10">
 
-                <p className="text-[13px] sm:text-[15px] text-[var(--text-gray)] mt-1">
+                    <h2 className="text-[16px] sm:text-[22px] font-black bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] bg-clip-text text-transparent leading-[1.3] pb-1">
 
-                    Monitor your wellness and healthcare insights.
+                        Welcome Back, Rajat
 
-                </p>
+                    </h2>
 
-            </div>
+                    <p className="text-[12px] sm:text-[14px] text-[var(--text-gray)] mt-0.5">
 
-            {/* RIGHT */}
-            <div className="flex items-center gap-3 sm:gap-4">
+                        Level up your wellness, fitness, mindset, and healthy lifestyle with AI.
 
-                {/* SEARCH */}
-                <button className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center hover:scale-105 transition-all duration-300">
+                    </p>
 
-                    <RiSearch2Line className="text-[22px] text-[var(--teal-primary)]" />
+                </div>
 
-                </button>
+                {/* RIGHT */}
+                <div className="relative z-10 flex items-center gap-3">
 
-                {/* NOTIFICATION */}
-                <button className="relative w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center hover:scale-105 transition-all duration-300">
+                    {/* NOTIFICATION */}
+                    <button className="relative w-11 h-11 rounded-full bg-white/70 backdrop-blur-xl border border-white/40 shadow-md flex items-center justify-center hover:scale-105 transition-all duration-300">
 
-                    <RiNotification3Fill className="text-[22px] text-[var(--teal-primary)]" />
+                        <RiNotification3Fill className="text-[20px] text-[var(--teal-primary)]" />
 
-                    <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+                        <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full"></div>
 
-                </button>
+                    </button>
 
-                {/* PROFILE */}
-                <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-2xl shadow-md">
-
+                    {/* PROFILE PIC */}
                     <img
                         src="https://randomuser.me/api/portraits/men/32.jpg"
                         alt="profile"
-                        className="w-10 h-10 rounded-xl object-cover"
+                        className="w-11 h-11 rounded-full object-cover border-2 border-white/70 shadow-md"
                     />
-
-                    <div className="hidden sm:block">
-
-                        <h4 className="text-[14px] font-semibold text-[var(--text-dark)]">
-
-                            Rajat Ghosh
-
-                        </h4>
-
-                        <p className="text-[11px] text-[var(--text-gray)]">
-
-                            Wellness User
-
-                        </p>
-
-                    </div>
 
                 </div>
 
