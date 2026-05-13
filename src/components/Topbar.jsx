@@ -8,13 +8,13 @@ const Topbar = () => {
 
     return (
 
-        <div className="fixed top-0 right-0 lg:left-[280px] z-40 px-4 sm:px-6 lg:px-8 pt-4">
+        <div className="fixed top-0 right-0 lg:left-[267px] z-40 px-4 sm:px-6 lg:px-8 pt-2">
 
             <div className="relative overflow-hidden w-full
             bg-gradient-to-r from-white/55 via-white/35 to-white/20
             backdrop-blur-2xl
             border border-white/30
-            rounded-[28px]
+            rounded-[16px]
             px-5 sm:px-6 py-3
             flex items-center justify-between
             shadow-[0_8px_40px_rgba(15,157,148,0.10)]">
