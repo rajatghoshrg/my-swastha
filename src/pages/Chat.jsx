@@ -18,7 +18,20 @@ const Chat = () => {
 
     return (
 
-        <div className="fixed top-[100px] left-[300px] right-[20px] bottom-[20px] flex">
+        <div className="
+        fixed
+        top-[90px]
+        left-[12px]
+        right-[12px]
+        bottom-[12px]
+
+        lg:top-[100px]
+        lg:left-[300px]
+        lg:right-[20px]
+        lg:bottom-[20px]
+
+        flex
+        ">
 
             {/* CHAT CONTAINER */}
             <div className="w-full h-full
@@ -75,17 +88,17 @@ const Chat = () => {
                     </div>
 
                     {/* RIGHT */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
 
-                        <button className="w-10 h-10 rounded-2xl bg-white/70 border border-white/40 shadow-md flex items-center justify-center">
+                        <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white/70 border border-white/40 shadow-md flex items-center justify-center">
 
-                            <RiRefreshLine className="text-[22px] text-[var(--teal-primary)]" />
+                            <RiRefreshLine className="text-[20px] sm:text-[22px] text-[var(--teal-primary)]" />
 
                         </button>
 
-                        <button className="w-10 h-10 rounded-2xl bg-white/70 border border-white/40 shadow-md flex items-center justify-center">
+                        <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white/70 border border-white/40 shadow-md flex items-center justify-center">
 
-                            <RiMore2Fill className="text-[22px] text-[var(--teal-primary)]" />
+                            <RiMore2Fill className="text-[20px] sm:text-[22px] text-[var(--teal-primary)]" />
 
                         </button>
 
@@ -94,12 +107,12 @@ const Chat = () => {
                 </div>
 
                 {/* SCROLLABLE CHAT AREA */}
-                <div className="flex-1 overflow-y-auto px-8 py-8 space-y-8 relative z-10">
+                <div className="flex-1 overflow-y-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6 lg:py-8 space-y-6 relative z-10">
 
                     {/* DATE */}
                     <div className="flex justify-center">
 
-                        <div className="px-5 py-2 rounded-full bg-white/60 border border-white/40 text-[13px] font-semibold text-[var(--text-gray)]">
+                        <div className="px-4 sm:px-5 py-2 rounded-full bg-white/60 border border-white/40 text-[11px] sm:text-[13px] font-semibold text-[var(--text-gray)]">
 
                             Today • Wellness Session
 
@@ -108,25 +121,25 @@ const Chat = () => {
                     </div>
 
                     {/* AI MESSAGE */}
-                    <div className="flex gap-4 items-start">
+                    <div className="flex gap-3 sm:gap-4 items-start">
 
-                        <div className="w-12 h-12 rounded-2xl
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
                         bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]
                         flex items-center justify-center shadow-md shrink-0">
 
-                            <RiRobot2Line className="text-white text-[22px]" />
+                            <RiRobot2Line className="text-white text-[18px] sm:text-[22px]" />
 
                         </div>
 
-                        <div className="max-w-[75%]
+                        <div className="max-w-[88%] sm:max-w-[75%]
                         bg-white/65
                         border border-white/40
                         backdrop-blur-xl
-                        rounded-[28px]
+                        rounded-[24px]
                         rounded-tl-[8px]
-                        px-6 py-5 shadow-sm">
+                        px-4 sm:px-6 py-4 sm:py-5 shadow-sm">
 
-                            <p className="text-[15px] sm:text-[16px] text-[var(--text-dark)] leading-[1.9]">
+                            <p className="text-[14px] sm:text-[16px] text-[var(--text-dark)] leading-[1.9]">
 
                                 Hello! I'm OxyGen, your AI wellness companion.
                                 How are you feeling today? I'm here to support
@@ -135,7 +148,7 @@ const Chat = () => {
 
                             </p>
 
-                            <p className="text-[13px] text-[var(--text-gray)] mt-4">
+                            <p className="text-[11px] sm:text-[13px] text-[var(--text-gray)] mt-4">
 
                                 10:02 AM
 
@@ -148,25 +161,25 @@ const Chat = () => {
                     {/* USER MESSAGE */}
                     <div className="flex justify-end">
 
-                        <div className="flex gap-4 items-end max-w-[80%]">
+                        <div className="flex gap-3 sm:gap-4 items-end max-w-[88%] sm:max-w-[80%]">
 
                             <div className="bg-gradient-to-r
                             from-[#14b8a6]
                             via-[#0ea5a4]
                             to-[#0f9f9c]
                             text-white
-                            rounded-[28px]
+                            rounded-[24px]
                             rounded-br-[8px]
-                            px-6 py-5 shadow-lg">
+                            px-4 sm:px-6 py-4 sm:py-5 shadow-lg">
 
-                                <p className="text-[15px] sm:text-[16px] leading-[1.9]">
+                                <p className="text-[14px] sm:text-[16px] leading-[1.9]">
 
                                     I've been feeling mentally exhausted lately
                                     and struggling to maintain a healthy routine.
 
                                 </p>
 
-                                <p className="text-[13px] text-white/70 mt-4">
+                                <p className="text-[11px] sm:text-[13px] text-white/70 mt-4">
 
                                     10:04 AM
 
@@ -174,12 +187,12 @@ const Chat = () => {
 
                             </div>
 
-                            <div className="w-12 h-12 rounded-2xl
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
                             bg-white/70
                             border border-white/40
                             flex items-center justify-center shadow-md shrink-0">
 
-                                <RiUser3Line className="text-[22px] text-[var(--teal-primary)]" />
+                                <RiUser3Line className="text-[18px] sm:text-[22px] text-[var(--teal-primary)]" />
 
                             </div>
 
@@ -188,25 +201,25 @@ const Chat = () => {
                     </div>
 
                     {/* AI MESSAGE */}
-                    <div className="flex gap-4 items-start">
+                    <div className="flex gap-3 sm:gap-4 items-start">
 
-                        <div className="w-12 h-12 rounded-2xl
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
                         bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]
                         flex items-center justify-center shadow-md shrink-0">
 
-                            <RiRobot2Line className="text-white text-[22px]" />
+                            <RiRobot2Line className="text-white text-[18px] sm:text-[22px]" />
 
                         </div>
 
-                        <div className="max-w-[75%]
+                        <div className="max-w-[88%] sm:max-w-[75%]
                         bg-white/65
                         border border-white/40
                         backdrop-blur-xl
-                        rounded-[28px]
+                        rounded-[24px]
                         rounded-tl-[8px]
-                        px-6 py-5 shadow-sm">
+                        px-4 sm:px-6 py-4 sm:py-5 shadow-sm">
 
-                            <p className="text-[15px] sm:text-[16px] text-[var(--text-dark)] leading-[1.9]">
+                            <p className="text-[14px] sm:text-[16px] text-[var(--text-dark)] leading-[1.9]">
 
                                 I understand. Burnout can affect both mental and
                                 physical wellness. Would you like a short breathing
@@ -247,19 +260,20 @@ const Chat = () => {
 
                                 <button
                                     key={index}
-                                    className="flex items-center gap-3
-                                    px-5 py-3
+                                    className="flex items-center gap-2 sm:gap-3
+                                    px-4 sm:px-5 py-2.5 sm:py-3
                                     rounded-full
                                     bg-white/60
                                     border border-white/40
                                     backdrop-blur-xl
+                                    text-[13px] sm:text-[15px]
                                     text-[var(--teal-primary)]
                                     font-semibold
                                     hover:scale-105
                                     hover:bg-white/80
                                     transition-all duration-300 shadow-sm">
 
-                                    <span className="text-[18px]">
+                                    <span className="text-[16px] sm:text-[18px]">
 
                                         {item.icon}
 
@@ -277,8 +291,9 @@ const Chat = () => {
                 </div>
 
                 {/* FIXED INPUT AREA */}
-                <div className="relative z-20 shrink-0 border-t border-white/30 px-5 py-4 backdrop-blur-xl bg-white/20">
-                    <div className="flex items-center gap-4
+                <div className="relative z-20 shrink-0 border-t border-white/30 px-3 sm:px-5 py-3 sm:py-4 backdrop-blur-xl bg-white/20">
+
+                    <div className="flex items-center gap-2 sm:gap-4
                     bg-white/65
                     border border-white/40
                     backdrop-blur-xl
@@ -287,36 +302,36 @@ const Chat = () => {
 
                         <button>
 
-                            <RiAddCircleLine className="text-[24px] text-[var(--teal-primary)]" />
+                            <RiAddCircleLine className="text-[22px] sm:text-[24px] text-[var(--teal-primary)]" />
 
                         </button>
 
                         <input
                             type="text"
                             placeholder="Tell OxyGen how you feel today..."
-                            className="flex-1 bg-transparent outline-none text-[14px] text-[var(--text-dark)] placeholder:text-[var(--text-gray)]"
+                            className="flex-1 bg-transparent outline-none text-[13px] sm:text-[14px] text-[var(--text-dark)] placeholder:text-[var(--text-gray)]"
                         />
 
                         <button>
 
-                            <RiMicLine className="text-[24px] text-[var(--teal-primary)]" />
+                            <RiMicLine className="text-[22px] sm:text-[24px] text-[var(--teal-primary)]" />
 
                         </button>
 
-                        <button className="w-10 h-10 rounded-full
+                        <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-full
                         bg-gradient-to-r
                         from-[#14b8a6]
                         via-[#0ea5a4]
                         to-[#0f9f9c]
                         flex items-center justify-center shadow-lg">
 
-                            <RiSendPlaneFill className="text-white text-[20px]" />
+                            <RiSendPlaneFill className="text-white text-[18px] sm:text-[20px]" />
 
                         </button>
 
                     </div>
 
-                    <p className="text-center text-[10px] tracking-[1px]
+                    <p className="text-center text-[9px] sm:text-[10px] tracking-[1px]
                     text-[var(--text-gray)] mt-3 uppercase">
 
                         Talk with me. Because your mental health matters.
