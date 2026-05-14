@@ -8,7 +8,7 @@ const Topbar = () => {
 
     return (
 
-        <div className="fixed top-0 right-0 lg:left-[267px] z-40 px-4 sm:px-6 lg:px-8 pt-2">
+        <div className="fixed top-[8px] left-[287px] right-[20px] z-40">
 
             <div className="relative overflow-hidden w-full
             bg-gradient-to-r from-white/55 via-white/35 to-white/20
