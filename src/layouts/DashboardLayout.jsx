@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import SideBar from '../components/SideBar'
@@ -6,9 +6,11 @@ import Topbar from '../components/Topbar'
 
 const DashboardLayout = () => {
 
+    const [open, setOpen] = useState(false)
+
     return (
 
-        <div className="relative min-h-screen flex overflow-hidden">
+        <div className="relative min-h-screen overflow-hidden">
 
             {/* FULL PAGE BACKGROUND IMAGE */}
             <img
@@ -18,29 +20,26 @@ const DashboardLayout = () => {
             />
 
             {/* WHITE OVERLAY */}
-            <div className="absolute inset-0 bg-white/45 backdrop-blur-[2px]"></div>
+            <div className="fixed inset-0 bg-white/45 backdrop-blur-[2px]"></div>
 
             {/* SIDEBAR */}
-            <div className="relative z-10">
+            <SideBar
+                open={open}
+                setOpen={setOpen}
+            />
 
-                <SideBar />
-
-            </div>
+            {/* TOPBAR */}
+            <Topbar
+                open={open}
+                setOpen={setOpen}
+            />
 
             {/* MAIN CONTENT */}
-            <div className="relative z-10 flex-1 lg:ml-[280px] p-4 sm:p-6 lg:p-8">
+            <main className="relative z-10 lg:ml-[280px] pt-[90px] px-3 sm:px-5 lg:px-6 pb-6">
 
-                {/* TOPBAR */}
-                <Topbar />
+                <Outlet />
 
-                {/* PAGE CONTENT */}
-                <div className="mt-8">
-
-                    <Outlet />
-
-                </div>
-
-            </div>
+            </main>
 
         </div>
 
