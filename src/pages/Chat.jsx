@@ -174,14 +174,13 @@ const Chat = () => {
 
                                 <p className="text-[14px] sm:text-[16px] leading-[1.9]">
 
-                                    I've been feeling mentally exhausted lately
-                                    and struggling to maintain a healthy routine.
+                                    I am feeling mentally unwell. and also exhausted.
 
                                 </p>
 
                                 <p className="text-[11px] sm:text-[13px] text-white/70 mt-4">
 
-                                    10:04 AM
+                                    11:00 AM
 
                                 </p>
 
@@ -253,7 +252,7 @@ const Chat = () => {
 
                                 {
                                     icon: <RiBookOpenLine />,
-                                    text: "Daily journal"
+                                    text: "Daily motivation"
                                 }
 
                             ].map((item, index) => (
