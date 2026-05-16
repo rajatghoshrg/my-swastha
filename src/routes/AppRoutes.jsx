@@ -9,9 +9,10 @@ import Dashboard from "../pages/Dashboard";
 import Chat from "../pages/Chat";
 import Checkup from "../pages/Checkup";
 import Emergency from "../pages/Emergency";
-import Exercise from "../pages/Exercise";
-import Calculators from "../pages/Calculators";
 
+import Exercise from "../pages/exercise/Exercise";
+
+import Calculators from "../pages/calculators/Calculators";
 
 function AppRoutes() {
 
@@ -42,14 +43,14 @@ function AppRoutes() {
                     path="/dashboard"
                     element={<Dashboard />}
                 />
-                
+
                 {/* Chat */}
                 <Route
                     path="/oxygen"
                     element={<Chat />}
                 />
 
-                 {/* Daily Checkup */}
+                {/* Daily Checkup */}
                 <Route
                     path="/checkup"
                     element={<Checkup />}
@@ -61,18 +62,43 @@ function AppRoutes() {
                     element={<Emergency />}
                 />
 
-                {/* Exercise */}
+                {/* Exercise Main Page */}
                 <Route
                     path="/exercise"
                     element={<Exercise />}
                 />
 
-                 {/* Calculators */}
+                {/* Exercise Session Pages
+                <Route
+                    path="/yoga"
+                    element={<Yoga />}
+                />
+
+                <Route
+                    path="/meditation"
+                    element={<Meditation />}
+                />
+
+                <Route
+                    path="/morningexercise"
+                    element={<MorningExercise />}
+                />
+
+                <Route
+                    path="/cardio"
+                    element={<Cardio />}
+                />
+
+                <Route
+                    path="/sleeprelaxation"
+                    element={<SleepRelaxation />}
+                /> */}
+
+                {/* Calculators */}
                 <Route
                     path="/calculators"
                     element={<Calculators />}
                 />
-
 
             </Route>
 

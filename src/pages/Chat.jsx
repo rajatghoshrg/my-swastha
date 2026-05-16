@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import {
     RiEmotionHappyLine,
@@ -15,6 +15,115 @@ import {
 } from "react-icons/ri";
 
 const Chat = () => {
+
+    const [message, setMessage] = useState("")
+
+    const [loading, setLoading] = useState(false)
+
+    const [messages, setMessages] = useState([])
+
+    const messagesEndRef = useRef(null)
+
+    useEffect(() => {
+
+        messagesEndRef.current?.scrollIntoView({
+            behavior: "smooth"
+        })
+
+    }, [messages, loading])
+
+    useEffect(() => {
+
+        const welcomeMessage = {
+
+            id: Date.now(),
+
+            sender: "ai",
+
+            text: "Hello! I'm OxyGen AI. How are you feeling today?",
+
+            time: "Now"
+
+        }
+
+        setMessages([welcomeMessage])
+
+    }, [])
+
+    const sendMessage = async () => {
+
+        if (!message.trim()) return
+
+        const userMessage = {
+
+            id: Date.now(),
+
+            sender: "user",
+
+            text: message,
+
+            time: "Now"
+
+        }
+
+        setMessages((prev) => [...prev, userMessage])
+
+        const currentMessage = message
+
+        setMessage("")
+
+        setLoading(true)
+
+        try {
+
+            const response = await fetch(
+                "http://127.0.0.1:8000/chat/",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        message: currentMessage
+                    })
+
+                }
+            )
+
+            const data = await response.json()
+
+            const aiMessage = {
+
+                id: Date.now(),
+
+                sender: "ai",
+
+                text: data.reply,
+
+                time: "Now"
+
+            }
+
+            setMessages((prev) => [...prev, aiMessage])
+
+        }
+
+        catch (error) {
+
+            console.log(error)
+
+        }
+
+        finally {
+
+            setLoading(false)
+
+        }
+
+    }
 
     return (
 
@@ -120,115 +229,136 @@ const Chat = () => {
 
                     </div>
 
-                    {/* AI MESSAGE */}
-                    <div className="flex gap-3 sm:gap-4 items-start">
+                    {/* DYNAMIC MESSAGES */}
+                    {
+                        messages.map((msg) => (
 
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
-                        bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]
-                        flex items-center justify-center shadow-md shrink-0">
+                            msg.sender === "ai"
 
-                            <RiRobot2Line className="text-white text-[18px] sm:text-[22px]" />
+                                ? (
 
-                        </div>
+                                    <div
+                                        key={msg.id}
+                                        className="flex gap-3 sm:gap-4 items-start"
+                                    >
 
-                        <div className="max-w-[88%] sm:max-w-[75%]
-                        bg-white/65
-                        border border-white/40
-                        backdrop-blur-xl
-                        rounded-[24px]
-                        rounded-tl-[8px]
-                        px-4 sm:px-6 py-4 sm:py-5 shadow-sm">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
+                                        bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]
+                                        flex items-center justify-center shadow-md shrink-0">
 
-                            <p className="text-[14px] sm:text-[16px] text-[var(--text-dark)] leading-[1.9]">
+                                            <RiRobot2Line className="text-white text-[18px] sm:text-[22px]" />
 
-                                Hello! I'm OxyGen, your AI wellness companion.
-                                How are you feeling today? I'm here to support
-                                your mental wellness, healthy habits, fitness,
-                                and daily balance.
+                                        </div>
 
-                            </p>
+                                        <div className="max-w-[88%] sm:max-w-[75%]
+                                        bg-white/65
+                                        border border-white/40
+                                        backdrop-blur-xl
+                                        rounded-[24px]
+                                        rounded-tl-[8px]
+                                        px-4 sm:px-6 py-4 sm:py-5 shadow-sm">
 
-                            <p className="text-[11px] sm:text-[13px] text-[var(--text-gray)] mt-4">
+                                            <p className="text-[14px] sm:text-[16px] text-[var(--text-dark)] leading-[1.9]">
 
-                                10:02 AM
+                                                {msg.text}
 
-                            </p>
+                                            </p>
 
-                        </div>
+                                            <p className="text-[11px] sm:text-[13px] text-[var(--text-gray)] mt-4">
 
-                    </div>
+                                                {msg.time}
 
-                    {/* USER MESSAGE */}
-                    <div className="flex justify-end">
+                                            </p>
 
-                        <div className="flex gap-3 sm:gap-4 items-end max-w-[88%] sm:max-w-[80%]">
+                                        </div>
 
-                            <div className="bg-gradient-to-r
-                            from-[#14b8a6]
-                            via-[#0ea5a4]
-                            to-[#0f9f9c]
-                            text-white
-                            rounded-[24px]
-                            rounded-br-[8px]
-                            px-4 sm:px-6 py-4 sm:py-5 shadow-lg">
+                                    </div>
 
-                                <p className="text-[14px] sm:text-[16px] leading-[1.9]">
+                                )
 
-                                    I am feeling mentally unwell. and also exhausted.
+                                : (
 
-                                </p>
+                                    <div
+                                        key={msg.id}
+                                        className="flex justify-end"
+                                    >
 
-                                <p className="text-[11px] sm:text-[13px] text-white/70 mt-4">
+                                        <div className="flex gap-3 sm:gap-4 items-end max-w-[88%] sm:max-w-[80%]">
 
-                                    11:00 AM
+                                            <div className="bg-gradient-to-r
+                                            from-[#14b8a6]
+                                            via-[#0ea5a4]
+                                            to-[#0f9f9c]
+                                            text-white
+                                            rounded-[24px]
+                                            rounded-br-[8px]
+                                            px-4 sm:px-6 py-4 sm:py-5 shadow-lg">
 
-                                </p>
+                                                <p className="text-[14px] sm:text-[16px] leading-[1.9]">
+
+                                                    {msg.text}
+
+                                                </p>
+
+                                                <p className="text-[11px] sm:text-[13px] text-white/70 mt-4">
+
+                                                    {msg.time}
+
+                                                </p>
+
+                                            </div>
+
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
+                                            bg-white/70
+                                            border border-white/40
+                                            flex items-center justify-center shadow-md shrink-0">
+
+                                                <RiUser3Line className="text-[18px] sm:text-[22px] text-[var(--teal-primary)]" />
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                )
+
+                        ))
+                    }
+
+                    {/* LOADING */}
+                    {
+                        loading && (
+
+                            <div className="flex gap-3 sm:gap-4 items-start">
+
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
+                                bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]
+                                flex items-center justify-center shadow-md shrink-0">
+
+                                    <RiRobot2Line className="text-white text-[18px] sm:text-[22px]" />
+
+                                </div>
+
+                                <div className="bg-white/65
+                                border border-white/40
+                                backdrop-blur-xl
+                                rounded-[24px]
+                                rounded-tl-[8px]
+                                px-5 py-4 shadow-sm">
+
+                                    <p className="text-[14px] text-[var(--text-gray)] animate-pulse">
+
+                                        OxyGen is typing...
+
+                                    </p>
+
+                                </div>
 
                             </div>
 
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
-                            bg-white/70
-                            border border-white/40
-                            flex items-center justify-center shadow-md shrink-0">
-
-                                <RiUser3Line className="text-[18px] sm:text-[22px] text-[var(--teal-primary)]" />
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    {/* AI MESSAGE */}
-                    <div className="flex gap-3 sm:gap-4 items-start">
-
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl
-                        bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c]
-                        flex items-center justify-center shadow-md shrink-0">
-
-                            <RiRobot2Line className="text-white text-[18px] sm:text-[22px]" />
-
-                        </div>
-
-                        <div className="max-w-[88%] sm:max-w-[75%]
-                        bg-white/65
-                        border border-white/40
-                        backdrop-blur-xl
-                        rounded-[24px]
-                        rounded-tl-[8px]
-                        px-4 sm:px-6 py-4 sm:py-5 shadow-sm">
-
-                            <p className="text-[14px] sm:text-[16px] text-[var(--text-dark)] leading-[1.9]">
-
-                                I understand. Burnout can affect both mental and
-                                physical wellness. Would you like a short breathing
-                                exercise, stress-relief activity, or sleep guidance?
-
-                            </p>
-
-                        </div>
-
-                    </div>
+                        )
+                    }
 
                     {/* QUICK ACTIONS */}
                     <div className="flex flex-wrap gap-3">
@@ -287,6 +417,8 @@ const Chat = () => {
 
                     </div>
 
+                    <div ref={messagesEndRef}></div>
+
                 </div>
 
                 {/* FIXED INPUT AREA */}
@@ -307,6 +439,8 @@ const Chat = () => {
 
                         <input
                             type="text"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
                             placeholder="Tell OxyGen how you feel today..."
                             className="flex-1 bg-transparent outline-none text-[13px] sm:text-[14px] text-[var(--text-dark)] placeholder:text-[var(--text-gray)]"
                         />
@@ -317,12 +451,14 @@ const Chat = () => {
 
                         </button>
 
-                        <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-full
-                        bg-gradient-to-r
-                        from-[#14b8a6]
-                        via-[#0ea5a4]
-                        to-[#0f9f9c]
-                        flex items-center justify-center shadow-lg">
+                        <button
+                            onClick={sendMessage}
+                            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full
+                            bg-gradient-to-r
+                            from-[#14b8a6]
+                            via-[#0ea5a4]
+                            to-[#0f9f9c]
+                            flex items-center justify-center shadow-lg">
 
                             <RiSendPlaneFill className="text-white text-[18px] sm:text-[20px]" />
 
