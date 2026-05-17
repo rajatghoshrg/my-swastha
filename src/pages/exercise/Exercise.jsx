@@ -18,51 +18,43 @@ const Exercise = () => {
     const sessions = [
 
         {
-            title: "Yoga Sessions",
-            subtitle: "Stretch, relax, and improve flexibility with guided yoga.",
+            title: "Yoga",
+            subtitle: "Stretch and refresh your body & mind.",
             image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop",
             icon: <RiLeafLine />,
             path: "/yoga"
         },
 
         {
-            title: "Morning Exercise",
-            subtitle: "Start your day with energy and healthy movement routines.",
-            image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop",
-            icon: <RiSunFoggyLine />,
-            path: "/morningexercise"
-        },
-
-        {
-            title: "Meditation Zone",
-            subtitle: "Calm your mind with peaceful meditation and breathing sessions.",
-            image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=1200&auto=format&fit=crop",
-            icon: <RiMentalHealthLine />,
-            path: "/meditation"
-        },
-
-        {
-            title: "Cardio Training",
-            subtitle: "Boost stamina and heart health with intense cardio workouts.",
+            title: "Cardio",
+            subtitle: "Boost stamina and heart health daily.",
             image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
             icon: <RiHeartPulseLine />,
             path: "/cardio"
         },
 
         {
-            title: "Running Sessions",
-            subtitle: "Improve endurance and stay active with guided running plans.",
-            image: "https://images.unsplash.com/photo-1486218119243-13883505764c?q=80&w=1200&auto=format&fit=crop",
-            icon: <RiRunLine />,
-            path: "/running"
+            title: "Meditation",
+            subtitle: "Calm your mind with peaceful sessions.",
+            image: "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=1200&auto=format&fit=crop",
+            icon: <RiMentalHealthLine />,
+            path: "/meditation"
         },
 
         {
-            title: "Sleep Relaxation",
-            subtitle: "Night relaxation sessions for better sleep and calmness.",
+            title: "Sleep Relax",
+            subtitle: "Relax deeply and improve your sleep.",
             image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
             icon: <RiMoonClearLine />,
             path: "/sleeprelaxation"
+        },
+
+        {
+            title: "Morning Exercise",
+            subtitle: "Start your day with energy & movement.",
+            image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop",
+            icon: <RiSunFoggyLine />,
+            path: "/morningexercise"
         }
 
     ]
@@ -268,14 +260,25 @@ gap-3">
 
                                     </div>
 
-                                    <p className="
-                        text-[10px]
-                        font-semibold
-                        text-[var(--text-gray)]">
+                                    <button
+                                        onClick={() => navigate(session.path)}
+                                        className="
+    px-4 py-1.5
+    rounded-full
+    bg-gradient-to-r
+    from-[#14b8a6]
+    via-[#0ea5a4]
+    to-[#0f9f9c]
+    text-white
+    text-[12px]
+    font-bold
+    shadow-sm
+    hover:scale-105
+    transition-all duration-300">
 
                                         Open
 
-                                    </p>
+                                    </button>
 
                                 </div>
 
