@@ -287,7 +287,7 @@ const Checkup = () => {
                             hover:scale-105
                             transition-all duration-300">
 
-                                Run Checkup
+                                Checkup
 
                             </button>
 
@@ -388,7 +388,7 @@ const Checkup = () => {
                                 leading-[1.7]
                                 text-[var(--text-gray)]">
 
-                                    AI-generated wellness insights based on your latest health activity.
+                                   wellness insights based on your latest health activity.
 
                                 </p>
 
@@ -398,7 +398,7 @@ const Checkup = () => {
                                 text-[12px]
                                 font-bold">
 
-                                    View Report →
+                                    Report →
 
                                 </button>
 
