@@ -141,17 +141,21 @@ const Checkup = () => {
 
                             <div>
 
-                                <p className="text-white/80 text-[13px] font-semibold">
+                               <p className="text-white/80 text-[12px] font-semibold tracking-[2px]">
+    AI WELLNESS SCORE
+</p>
 
-                                    HEALTH SCORE
+<h2 className="text-[54px] font-black leading-none mt-1">
+    92%
+</h2>
 
-                                </p>
+<p className="mt-2 text-white/90 font-semibold">
+    Excellent Health Status 🚀
+</p>
 
-                                <h2 className="text-[34px] font-black">
-
-                                    92%
-
-                                </h2>
+<p className="mt-3 max-w-[500px] text-[14px] leading-[1.8] text-white/85">
+    You're performing better than 87% of users this week. Keep your momentum going.
+</p>
 
                             </div>
 
