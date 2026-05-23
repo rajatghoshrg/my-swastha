@@ -11,6 +11,7 @@ import Checkup from "../pages/Checkup";
 import Emergency from "../pages/Emergency";
 
 import Exercise from "../pages/exercise/Exercise";
+import Yoga from "../pages/exercise/Yoga";
 
 import Calculators from "../pages/calculators/Calculators";
 
@@ -68,13 +69,13 @@ function AppRoutes() {
                     element={<Exercise />}
                 />
 
-                {/* Exercise Session Pages
+                {/* Exercise Session Pages */}
                 <Route
                     path="/yoga"
                     element={<Yoga />}
                 />
 
-                <Route
+                {/* <Route
                     path="/meditation"
                     element={<Meditation />}
                 />
