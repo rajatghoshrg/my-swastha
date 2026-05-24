@@ -1,37 +1,31 @@
 import React, { useState, useEffect } from 'react'
 
 const yogaSteps = [
-
     {
         title: "Deep Breathing",
-        duration: 120,
-        instruction: "Sit comfortably. Inhale deeply through your nose and exhale slowly."
+        instruction:
+            "Sit comfortably. Inhale deeply through your nose and exhale slowly."
     },
-
     {
         title: "Neck Stretch",
-        duration: 120,
-        instruction: "Slowly tilt your head left and right. Relax your shoulders."
+        instruction:
+            "Slowly tilt your head left and right while relaxing your shoulders."
     },
-
     {
         title: "Cat-Cow Pose",
-        duration: 180,
-        instruction: "Move between arching and rounding your back with controlled breathing."
+        instruction:
+            "Move between arching and rounding your back with controlled breathing."
     },
-
     {
         title: "Child Pose",
-        duration: 120,
-        instruction: "Stretch your back and hips while focusing on calm breathing."
+        instruction:
+            "Stretch your lower back and relax your hips."
     },
-
     {
         title: "Relaxation",
-        duration: 60,
-        instruction: "Close your eyes, breathe naturally and relax your entire body."
+        instruction:
+            "Close your eyes and enjoy calm breathing."
     }
-
 ]
 
 const Yoga = () => {
@@ -40,6 +34,9 @@ const Yoga = () => {
     const [timeLeft, setTimeLeft] = useState(600)
     const [running, setRunning] = useState(false)
     const [currentStep, setCurrentStep] = useState(0)
+
+    const totalSteps = 5
+    const stepDuration = (selectedTime * 60) / totalSteps
 
     useEffect(() => {
 
@@ -63,20 +60,12 @@ const Yoga = () => {
 
         const elapsed = selectedTime * 60 - timeLeft
 
-        let cumulative = 0
+        const activeStep = Math.min(
+            Math.floor(elapsed / stepDuration),
+            totalSteps - 1
+        )
 
-        for (let i = 0; i < yogaSteps.length; i++) {
-
-            cumulative += yogaSteps[i].duration
-
-            if (elapsed < cumulative) {
-
-                setCurrentStep(i)
-                break
-
-            }
-
-        }
+        setCurrentStep(activeStep)
 
     }, [timeLeft, selectedTime])
 
@@ -93,6 +82,26 @@ const Yoga = () => {
 
         const mins = Math.floor(timeLeft / 60)
         const secs = timeLeft % 60
+
+        return `${mins.toString().padStart(2, '0')}:${secs
+            .toString()
+            .padStart(2, '0')}`
+
+    }
+
+    const currentStepRemaining = () => {
+
+        const elapsed = selectedTime * 60 - timeLeft
+
+        const elapsedInCurrentStep = elapsed % stepDuration
+
+        const remaining = Math.max(
+            0,
+            Math.ceil(stepDuration - elapsedInCurrentStep)
+        )
+
+        const mins = Math.floor(remaining / 60)
+        const secs = remaining % 60
 
         return `${mins.toString().padStart(2, '0')}:${secs
             .toString()
@@ -127,7 +136,7 @@ const Yoga = () => {
                 <h1 className="
                 mt-4
                 text-[30px]
-                sm:text-[36px]
+                sm:text-[38px]
                 font-black
                 text-[var(--text-dark)]">
 
@@ -172,19 +181,15 @@ const Yoga = () => {
                             key={time}
                             onClick={() => handleSession(time)}
                             className={`
-                            px-5 py-2.5
+                            px-5 py-3
                             rounded-full
                             font-bold
                             transition-all duration-300
 
                             ${selectedTime === time
-
                                     ? "bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] text-white shadow-lg"
-
-                                    : "bg-white/60 backdrop-blur-xl border border-white/30"
-
-                                }
-                            `}>
+                                    : "bg-white/60 backdrop-blur-xl border border-white/30 text-[var(--text-dark)]"
+                                }`}>
 
                             {time} Min
 
@@ -195,27 +200,27 @@ const Yoga = () => {
 
             </div>
 
-            {/* MAIN SECTION */}
+            {/* CONTENT */}
 
             <div className="
             mt-8
             grid
             lg:grid-cols-2
-            gap-5">
+            gap-6">
 
-                {/* TIMER */}
+                {/* MAIN TIMER */}
 
                 <div className="
-                rounded-[28px]
-                bg-white/50
-                backdrop-blur-xl
+                rounded-[30px]
+                bg-white/55
+                backdrop-blur-2xl
                 border border-white/30
                 p-6">
 
                     <h2 className="
+                    text-center
                     text-[22px]
                     font-black
-                    text-center
                     text-[var(--text-dark)]">
 
                         Session Timer
@@ -223,29 +228,36 @@ const Yoga = () => {
                     </h2>
 
                     <div className="
-                    w-[260px]
-                    h-[260px]
-                    mx-auto
-                    mt-6
-                    rounded-full
-                    border-[12px]
-                    border-[#14b8a6]
-                    flex items-center justify-center">
+                    mt-8
+                    flex justify-center">
 
-                        <span className="
-                        text-[42px]
-                        font-black
-                        text-[#14b8a6]">
+                        <div className="
+                        w-[280px]
+                        h-[280px]
+                        rounded-full
+                        border-[14px]
+                        border-[#14b8a6]
+                        flex
+                        items-center
+                        justify-center
+                        bg-white/40">
 
-                            {formatTime()}
+                            <span className="
+                            text-[48px]
+                            font-black
+                            text-[#14b8a6]">
 
-                        </span>
+                                {formatTime()}
+
+                            </span>
+
+                        </div>
 
                     </div>
 
                     <div className="
-                    flex justify-center gap-4
-                    mt-6">
+                    mt-8
+                    flex justify-center gap-4">
 
                         <button
                             onClick={() => setRunning(true)}
@@ -259,8 +271,7 @@ const Yoga = () => {
                             text-white
                             font-bold">
 
-                            Start
-
+                            Start Session
                         </button>
 
                         <button
@@ -269,11 +280,10 @@ const Yoga = () => {
                             px-6 py-3
                             rounded-full
                             bg-white
-                            shadow-md
+                            border border-white/30
                             font-bold">
 
                             Pause
-
                         </button>
 
                     </div>
@@ -287,8 +297,8 @@ const Yoga = () => {
                             rounded-2xl
                             bg-green-100
                             text-green-700
-                            font-bold
-                            text-center">
+                            text-center
+                            font-bold">
 
                                 🎉 Yoga Session Completed Successfully!
 
@@ -302,9 +312,9 @@ const Yoga = () => {
                 {/* LIVE GUIDE */}
 
                 <div className="
-                rounded-[28px]
-                bg-white/50
-                backdrop-blur-xl
+                rounded-[30px]
+                bg-white/55
+                backdrop-blur-2xl
                 border border-white/30
                 p-6">
 
@@ -317,23 +327,62 @@ const Yoga = () => {
 
                     </h2>
 
+                    {/* STEP TIMER */}
+
                     <div className="
-                    mt-5
+                    flex justify-center
+                    mt-6 mb-6">
+
+                        <div className="
+                        w-[140px]
+                        h-[140px]
+                        rounded-full
+                        border-[10px]
+                        border-[#14b8a6]
+                        bg-white/40
+                        flex flex-col
+                        items-center
+                        justify-center
+                        shadow-lg">
+
+                            <span className="
+                            text-[28px]
+                            font-black
+                            text-[#14b8a6]">
+
+                                {currentStepRemaining()}
+
+                            </span>
+
+                            <span className="
+                            text-[12px]
+                            font-semibold
+                            text-[var(--text-gray)]">
+
+                                Step {currentStep + 1}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div className="
+                    inline-flex
                     px-3 py-1
                     rounded-full
-                    inline-flex
                     bg-[#14b8a6]/10
                     text-[#14b8a6]
                     text-[12px]
                     font-bold">
 
-                        Step {currentStep + 1} / {yogaSteps.length}
+                        Step {currentStep + 1} / {totalSteps}
 
                     </div>
 
                     <h3 className="
                     mt-5
-                    text-[30px]
+                    text-[32px]
                     font-black
                     text-[var(--text-dark)]">
 
@@ -351,6 +400,8 @@ const Yoga = () => {
 
                     </p>
 
+                    {/* ALL STEPS */}
+
                     <div className="
                     mt-8
                     flex flex-col gap-3">
@@ -366,11 +417,8 @@ const Yoga = () => {
                                     transition-all duration-300
 
                                     ${index === currentStep
-
                                             ? "bg-gradient-to-r from-[#14b8a6]/15 via-[#0ea5a4]/15 to-[#0f9f9c]/15 border border-[#14b8a6]/20"
-
-                                            : "bg-white/60"
-
+                                            : "bg-white/50"
                                         }
                                     `}>
 
@@ -385,7 +433,9 @@ const Yoga = () => {
                                         via-[#0ea5a4]
                                         to-[#0f9f9c]
                                         text-white
-                                        flex items-center justify-center
+                                        flex
+                                        items-center
+                                        justify-center
                                         text-[13px]
                                         font-bold">
 
@@ -412,13 +462,13 @@ const Yoga = () => {
 
             </div>
 
-            {/* MUSIC */}
+            {/* MUSIC SECTION */}
 
             <div className="
             mt-8
-            rounded-[28px]
-            bg-white/50
-            backdrop-blur-xl
+            rounded-[30px]
+            bg-white/55
+            backdrop-blur-2xl
             border border-white/30
             p-6">
 
@@ -427,9 +477,18 @@ const Yoga = () => {
                 font-black
                 text-[var(--text-dark)]">
 
-                    Relaxing Yoga Music
+                    Yoga Music & Relaxation
 
                 </h2>
+
+                <p className="
+                mt-2
+                text-[14px]
+                text-[var(--text-gray)]">
+
+                    Choose calming sounds while practicing yoga.
+
+                </p>
 
                 <audio
                     controls
@@ -443,8 +502,9 @@ const Yoga = () => {
                 </audio>
 
                 <div className="
-                mt-5
-                flex flex-wrap gap-3">
+                flex flex-wrap
+                gap-3
+                mt-5">
 
                     <button className="px-4 py-2 rounded-full bg-[#14b8a6]/10">
                         🌲 Forest
