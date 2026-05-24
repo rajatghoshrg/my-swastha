@@ -1,10 +1,45 @@
 import React, { useState, useEffect } from 'react'
 
+const yogaSteps = [
+
+    {
+        title: "Deep Breathing",
+        duration: 120,
+        instruction: "Sit comfortably. Inhale deeply through your nose and exhale slowly."
+    },
+
+    {
+        title: "Neck Stretch",
+        duration: 120,
+        instruction: "Slowly tilt your head left and right. Relax your shoulders."
+    },
+
+    {
+        title: "Cat-Cow Pose",
+        duration: 180,
+        instruction: "Move between arching and rounding your back with controlled breathing."
+    },
+
+    {
+        title: "Child Pose",
+        duration: 120,
+        instruction: "Stretch your back and hips while focusing on calm breathing."
+    },
+
+    {
+        title: "Relaxation",
+        duration: 60,
+        instruction: "Close your eyes, breathe naturally and relax your entire body."
+    }
+
+]
+
 const Yoga = () => {
 
     const [selectedTime, setSelectedTime] = useState(10)
     const [timeLeft, setTimeLeft] = useState(600)
     const [running, setRunning] = useState(false)
+    const [currentStep, setCurrentStep] = useState(0)
 
     useEffect(() => {
 
@@ -24,10 +59,32 @@ const Yoga = () => {
 
     }, [running, timeLeft])
 
+    useEffect(() => {
+
+        const elapsed = selectedTime * 60 - timeLeft
+
+        let cumulative = 0
+
+        for (let i = 0; i < yogaSteps.length; i++) {
+
+            cumulative += yogaSteps[i].duration
+
+            if (elapsed < cumulative) {
+
+                setCurrentStep(i)
+                break
+
+            }
+
+        }
+
+    }, [timeLeft, selectedTime])
+
     const handleSession = (minutes) => {
 
         setSelectedTime(minutes)
         setTimeLeft(minutes * 60)
+        setCurrentStep(0)
         setRunning(false)
 
     }
@@ -37,39 +94,65 @@ const Yoga = () => {
         const mins = Math.floor(timeLeft / 60)
         const secs = timeLeft % 60
 
-        return `${mins.toString().padStart(2, "0")}:${secs
+        return `${mins.toString().padStart(2, '0')}:${secs
             .toString()
-            .padStart(2, "0")}`
+            .padStart(2, '0')}`
 
     }
 
     return (
 
         <div className="
-        pt-[70px]
+        relative z-10
+        pt-[40px]
         pb-10
-        px-4
-        ">
+        px-3 sm:px-5 lg:px-0">
 
             {/* HEADER */}
 
             <div>
 
+                <div className="
+                inline-flex items-center gap-2
+                px-3 py-1.5 rounded-full
+                bg-[#14b8a6]/10
+                border border-[#14b8a6]/10
+                text-[#0f9f9c]
+                font-semibold text-[11px]">
+
+                    ✦ GUIDED YOGA SESSION
+
+                </div>
+
                 <h1 className="
-                text-[32px]
+                mt-4
+                text-[30px]
+                sm:text-[36px]
                 font-black
                 text-[var(--text-dark)]">
 
-                    Yoga Sessions
+                    Yoga Wellness
+
+                    <span className="
+                    bg-gradient-to-r
+                    from-[#14b8a6]
+                    via-[#0ea5a4]
+                    to-[#0f9f9c]
+                    bg-clip-text
+                    text-transparent">
+
+                        {" "}Journey
+
+                    </span>
 
                 </h1>
 
                 <p className="
-                mt-2
+                mt-3
                 text-[14px]
                 text-[var(--text-gray)]">
 
-                    Improve flexibility, posture and inner peace through guided yoga.
+                    Relax, stretch and strengthen your body with guided yoga routines.
 
                 </p>
 
@@ -79,8 +162,8 @@ const Yoga = () => {
 
             <div className="
             flex gap-3
-            mt-6
-            flex-wrap">
+            flex-wrap
+            mt-6">
 
                 {
                     [10, 20, 30].map(time => (
@@ -89,18 +172,19 @@ const Yoga = () => {
                             key={time}
                             onClick={() => handleSession(time)}
                             className={`
-                            px-5 py-3
+                            px-5 py-2.5
                             rounded-full
                             font-bold
-                            transition-all
+                            transition-all duration-300
 
                             ${selectedTime === time
 
-                                    ? "bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] text-white"
+                                    ? "bg-gradient-to-r from-[#14b8a6] via-[#0ea5a4] to-[#0f9f9c] text-white shadow-lg"
 
-                                    : "bg-white/60 text-[var(--text-dark)]"
+                                    : "bg-white/60 backdrop-blur-xl border border-white/30"
 
-                                }`}>
+                                }
+                            `}>
 
                             {time} Min
 
@@ -111,35 +195,36 @@ const Yoga = () => {
 
             </div>
 
-            {/* MAIN AREA */}
+            {/* MAIN SECTION */}
 
             <div className="
+            mt-8
             grid
             lg:grid-cols-2
-            gap-5
-            mt-8">
+            gap-5">
 
                 {/* TIMER */}
 
                 <div className="
                 rounded-[28px]
-                p-6
                 bg-white/50
                 backdrop-blur-xl
-                border border-white/30">
+                border border-white/30
+                p-6">
 
                     <h2 className="
                     text-[22px]
                     font-black
-                    text-center">
+                    text-center
+                    text-[var(--text-dark)]">
 
                         Session Timer
 
                     </h2>
 
                     <div className="
-                    w-[250px]
-                    h-[250px]
+                    w-[260px]
+                    h-[260px]
                     mx-auto
                     mt-6
                     rounded-full
@@ -159,14 +244,13 @@ const Yoga = () => {
                     </div>
 
                     <div className="
-                    flex justify-center
-                    gap-4
+                    flex justify-center gap-4
                     mt-6">
 
                         <button
                             onClick={() => setRunning(true)}
                             className="
-                            px-5 py-3
+                            px-6 py-3
                             rounded-full
                             bg-gradient-to-r
                             from-[#14b8a6]
@@ -182,7 +266,7 @@ const Yoga = () => {
                         <button
                             onClick={() => setRunning(false)}
                             className="
-                            px-5 py-3
+                            px-6 py-3
                             rounded-full
                             bg-white
                             shadow-md
@@ -194,66 +278,128 @@ const Yoga = () => {
 
                     </div>
 
+                    {
+                        timeLeft === 0 && (
+
+                            <div className="
+                            mt-6
+                            p-4
+                            rounded-2xl
+                            bg-green-100
+                            text-green-700
+                            font-bold
+                            text-center">
+
+                                🎉 Yoga Session Completed Successfully!
+
+                            </div>
+
+                        )
+                    }
+
                 </div>
 
-                {/* YOGA FLOW */}
+                {/* LIVE GUIDE */}
 
                 <div className="
                 rounded-[28px]
-                p-6
                 bg-white/50
                 backdrop-blur-xl
-                border border-white/30">
+                border border-white/30
+                p-6">
 
                     <h2 className="
                     text-[22px]
-                    font-black">
+                    font-black
+                    text-[var(--text-dark)]">
 
-                        Today's Yoga Flow
+                        Live Yoga Guide
 
                     </h2>
 
                     <div className="
-                    mt-6
-                    flex flex-col gap-4">
+                    mt-5
+                    px-3 py-1
+                    rounded-full
+                    inline-flex
+                    bg-[#14b8a6]/10
+                    text-[#14b8a6]
+                    text-[12px]
+                    font-bold">
+
+                        Step {currentStep + 1} / {yogaSteps.length}
+
+                    </div>
+
+                    <h3 className="
+                    mt-5
+                    text-[30px]
+                    font-black
+                    text-[var(--text-dark)]">
+
+                        {yogaSteps[currentStep].title}
+
+                    </h3>
+
+                    <p className="
+                    mt-4
+                    text-[15px]
+                    leading-[1.9]
+                    text-[var(--text-gray)]">
+
+                        {yogaSteps[currentStep].instruction}
+
+                    </p>
+
+                    <div className="
+                    mt-8
+                    flex flex-col gap-3">
 
                         {
-                            [
-                                "Deep Breathing (2 mins)",
-                                "Neck Stretch (2 mins)",
-                                "Cat-Cow Pose (3 mins)",
-                                "Child Pose (2 mins)",
-                                "Relaxation (1 min)"
-                            ].map((step, index) => (
+                            yogaSteps.map((step, index) => (
 
                                 <div
                                     key={index}
-                                    className="
-                                    flex items-center gap-4
+                                    className={`
                                     p-4
                                     rounded-2xl
-                                    bg-white/70">
+                                    transition-all duration-300
+
+                                    ${index === currentStep
+
+                                            ? "bg-gradient-to-r from-[#14b8a6]/15 via-[#0ea5a4]/15 to-[#0f9f9c]/15 border border-[#14b8a6]/20"
+
+                                            : "bg-white/60"
+
+                                        }
+                                    `}>
 
                                     <div className="
-                                    w-9 h-9
-                                    rounded-full
-                                    bg-gradient-to-r
-                                    from-[#14b8a6]
-                                    via-[#0ea5a4]
-                                    to-[#0f9f9c]
-                                    text-white
-                                    flex items-center justify-center
-                                    font-bold">
+                                    flex items-center gap-3">
 
-                                        {index + 1}
+                                        <div className="
+                                        w-8 h-8
+                                        rounded-full
+                                        bg-gradient-to-r
+                                        from-[#14b8a6]
+                                        via-[#0ea5a4]
+                                        to-[#0f9f9c]
+                                        text-white
+                                        flex items-center justify-center
+                                        text-[13px]
+                                        font-bold">
+
+                                            {index + 1}
+
+                                        </div>
+
+                                        <p className="font-semibold">
+
+                                            {step.title}
+
+                                        </p>
 
                                     </div>
-
-                                    <p className="font-medium">
-
-                                        {step}
-
-                                    </p>
 
                                 </div>
 
@@ -271,14 +417,15 @@ const Yoga = () => {
             <div className="
             mt-8
             rounded-[28px]
-            p-6
             bg-white/50
             backdrop-blur-xl
-            border border-white/30">
+            border border-white/30
+            p-6">
 
                 <h2 className="
                 text-[22px]
-                font-black">
+                font-black
+                text-[var(--text-dark)]">
 
                     Relaxing Yoga Music
 
@@ -296,9 +443,8 @@ const Yoga = () => {
                 </audio>
 
                 <div className="
-                flex gap-3
-                flex-wrap
-                mt-5">
+                mt-5
+                flex flex-wrap gap-3">
 
                     <button className="px-4 py-2 rounded-full bg-[#14b8a6]/10">
                         🌲 Forest
@@ -323,6 +469,7 @@ const Yoga = () => {
         </div>
 
     )
+
 }
 
 export default Yoga
