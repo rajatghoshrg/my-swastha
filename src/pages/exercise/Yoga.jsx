@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import {
+    RiPlantFill,
+    RiCloudyFill,
+    RiWaterFlashFill,
+    RiMusic2Fill
+} from "react-icons/ri";
 
 const yogaSteps = [
     {
@@ -506,21 +512,69 @@ const Yoga = () => {
                 gap-3
                 mt-5">
 
-                    <button className="px-4 py-2 rounded-full bg-[#14b8a6]/10">
-                        🌲 Forest
-                    </button>
+                    <div className="flex flex-wrap gap-3 mt-5">
 
-                    <button className="px-4 py-2 rounded-full bg-[#14b8a6]/10">
-                        🌧 Rain
-                    </button>
+                        <button className="
+    flex items-center gap-2
+    px-4 py-2
+    rounded-full
+    bg-[#14b8a6]/10
+    text-[#0f9f9c]
+    font-medium
+    hover:bg-[#14b8a6]/20
+    transition-all">
 
-                    <button className="px-4 py-2 rounded-full bg-[#14b8a6]/10">
-                        🌊 Ocean
-                    </button>
+                            <RiPlantFill className="text-[18px]" />
+                            Forest
 
-                    <button className="px-4 py-2 rounded-full bg-[#14b8a6]/10">
-                        🎵 Meditation
-                    </button>
+                        </button>
+
+                        <button className="
+    flex items-center gap-2
+    px-4 py-2
+    rounded-full
+    bg-[#14b8a6]/10
+    text-[#0f9f9c]
+    font-medium
+    hover:bg-[#14b8a6]/20
+    transition-all">
+
+                            <RiCloudyFill className="text-[18px]" />
+                            Rain
+
+                        </button>
+
+                        <button className="
+    flex items-center gap-2
+    px-4 py-2
+    rounded-full
+    bg-[#14b8a6]/10
+    text-[#0f9f9c]
+    font-medium
+    hover:bg-[#14b8a6]/20
+    transition-all">
+
+                            <RiWaterFlashFill className="text-[18px]" />
+                            Ocean
+
+                        </button>
+
+                        <button className="
+    flex items-center gap-2
+    px-4 py-2
+    rounded-full
+    bg-[#14b8a6]/10
+    text-[#0f9f9c]
+    font-medium
+    hover:bg-[#14b8a6]/20
+    transition-all">
+
+                            <RiMusic2Fill className="text-[18px]" />
+                            Meditation
+
+                        </button>
+
+                    </div>
 
                 </div>
 
