@@ -306,7 +306,7 @@ const Yoga = () => {
                             text-center
                             font-bold">
 
-                                🎉 Yoga Session Completed Successfully!
+                                 Yoga Session Completed Successfully!
 
                             </div>
 
@@ -540,7 +540,7 @@ const Yoga = () => {
     transition-all">
 
                             <RiCloudyFill className="text-[18px]" />
-                            Rain
+                            Rain Fall
 
                         </button>
 
